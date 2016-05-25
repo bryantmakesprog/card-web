@@ -106,6 +106,13 @@ class CardController extends Controller
 
         return $this->redirect(['index']);
     }
+    
+    public function actionGetCardInfo($id)
+    {
+        $model = $this->findModel($id);
+        echo $model->getApiCard();
+        exit;
+    }
 
     /**
      * Finds the Card model based on its primary key value.

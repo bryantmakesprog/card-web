@@ -131,4 +131,15 @@ class Card extends \yii\db\ActiveRecord
         }
         return $categoryOptions;
     }
+    
+    public function getApiCard()
+    {
+        $cardInfo['id'] = $this->id;
+        $cardInfo['name'] = $this->name;
+        $cardInfo['description'] = $this->description;
+        $cardInfo['rollMin'] = $this->triggeringRollMin;
+        $cardInfo['rollMax'] = $this->triggeringRollMax;
+        $cardInfo['cost'] = $this->cost;
+        return json_encode($cardInfo);
+    }
 }
