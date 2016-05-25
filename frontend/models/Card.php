@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Category;
 
 /**
  * This is the model class for table "card".
@@ -118,5 +119,16 @@ class Card extends \yii\db\ActiveRecord
             'category' => 'Multiply By Number Of Buildings In Category',
         ];
         return $effectOptions;
+    }
+    
+    public function getCategoryOptions()
+    {
+        $categoryOptions['-1'] = 'None';
+        $allAvailableCategories = Category::find()->all();
+        foreach($allAvailableCategories as $category)
+        {
+            $categoryOptions[$category->id] = $category->name;
+        }
+        return $categoryOptions;
     }
 }

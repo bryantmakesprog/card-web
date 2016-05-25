@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'category')->textInput() ?>
+    <?= $form->field($model, 'category')->dropDownList($model->getCategoryOptions()) ?>
 
     <?= $form->field($model, 'cost')->textInput() ?>
 
@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'effectMultiplier')->dropDownList($model->getEffectMultiplierOptions()) ?>
 
-    <?= $form->field($model, 'effectMultiplierCategory')->textInput() ?>
+    <?= $form->field($model, 'effectMultiplierCategory')->dropDownList($model->getCategoryOptions()) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
