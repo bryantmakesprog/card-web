@@ -12,17 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList($model->getStatusOptions()) ?>
 
     <?= $form->field($model, 'triggeringRollMin')->textInput() ?>
 
     <?= $form->field($model, 'triggeringRollMax')->textInput() ?>
 
-    <?= $form->field($model, 'triggersOn')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'triggersOn')->dropDownList($model->getTriggersOnOptions()) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -34,13 +30,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cost')->textInput() ?>
 
-    <?= $form->field($model, 'effect')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'effect')->dropDownList($model->getEffectOptions()) ?>
 
-    <?= $form->field($model, 'effectFrom')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'effectFrom')->dropDownList($model->getEffectFromOptions()) ?>
 
     <?= $form->field($model, 'effectValue')->textInput() ?>
 
-    <?= $form->field($model, 'effectMultiplier')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'effectMultiplier')->dropDownList($model->getEffectMultiplierOptions()) ?>
 
     <?= $form->field($model, 'effectMultiplierCategory')->textInput() ?>
 

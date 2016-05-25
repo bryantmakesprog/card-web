@@ -58,8 +58,8 @@ class Card extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'triggeringRollMin' => 'Triggering Roll Min',
-            'triggeringRollMax' => 'Triggering Roll Max',
+            'triggeringRollMin' => "Roll Req'd (Min)",
+            'triggeringRollMax' => "Roll Req'd (Max)",
             'triggersOn' => 'Triggers On',
             'name' => 'Name',
             'image' => 'Image',
@@ -67,10 +67,56 @@ class Card extends \yii\db\ActiveRecord
             'category' => 'Category',
             'cost' => 'Cost',
             'effect' => 'Effect',
-            'effectFrom' => 'Effect From',
+            'effectFrom' => 'Receive From',
             'effectValue' => 'Effect Value',
-            'effectMultiplier' => 'Effect Multiplier',
-            'effectMultiplierCategory' => 'Effect Multiplier Category',
+            'effectMultiplier' => 'Value Multiplier',
+            'effectMultiplierCategory' => 'Multiplier Category',
         ];
+    }
+    
+    public function getStatusOptions()
+    {
+        $statusOptions = [
+            '0' => 'Disabled',
+            '1' => 'Active',
+        ];
+        return $statusOptions;
+    }
+    
+    public function getTriggersOnOptions()
+    {
+        $triggerOptions = [
+            'owner' => 'Your Turn',
+            'opponent' => "An Opponent's Turn",
+            'all' => 'All Turns',
+        ];
+        return $triggerOptions;
+    }
+    
+    public function getEffectOptions()
+    {
+        $effectOptions = [
+            'receive' => 'Receive Points',
+        ];
+        return $effectOptions;
+    }
+    
+    public function getEffectFromOptions()
+    {
+        $effectOptions = [
+            'bank' => 'The Bank',
+            'opponent' => 'The Roller',
+            'all' => 'All Opponent',
+        ];
+        return $effectOptions;
+    }
+    
+    public function getEffectMultiplierOptions()
+    {
+        $effectOptions = [
+            'none' => 'No Multiplier',
+            'category' => 'Multiply By Number Of Buildings In Category',
+        ];
+        return $effectOptions;
     }
 }
