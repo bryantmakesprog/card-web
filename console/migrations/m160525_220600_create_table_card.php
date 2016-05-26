@@ -24,6 +24,7 @@ class m160525_220600_create_table_card extends Migration
             
             'name' => $this->string()->notNull(),
             'image' => $this->string()->notNull(),
+            'background' => $this->string()->notNull(),
             'description' => $this->text()->notNull(),
             
             'category' => $this->integer(),

@@ -43,7 +43,7 @@ class Card extends \yii\db\ActiveRecord
     {
         return [
             [['status', 'created_at', 'updated_at', 'triggeringRollMin', 'triggeringRollMax', 'category', 'cost', 'effectValue', 'effectMultiplierCategory'], 'integer'],
-            [['created_at', 'updated_at', 'triggeringRollMin', 'triggeringRollMax', 'triggersOn', 'name', 'image', 'description', 'cost', 'effect', 'effectFrom', 'effectValue', 'effectMultiplier'], 'required'],
+            [['created_at', 'updated_at', 'triggeringRollMin', 'triggeringRollMax', 'triggersOn', 'name', 'image', 'background', 'description', 'cost', 'effect', 'effectFrom', 'effectValue', 'effectMultiplier'], 'required'],
             [['description'], 'string'],
             [['triggersOn', 'name', 'image', 'effect', 'effectFrom', 'effectMultiplier'], 'string', 'max' => 255]
         ];
@@ -64,6 +64,7 @@ class Card extends \yii\db\ActiveRecord
             'triggersOn' => 'Triggers On',
             'name' => 'Name',
             'image' => 'Image',
+            'background' => 'Background',
             'description' => 'Description',
             'category' => 'Category',
             'cost' => 'Cost',
@@ -141,6 +142,7 @@ class Card extends \yii\db\ActiveRecord
         $cardInfo['rollMax'] = $this->triggeringRollMax;
         $cardInfo['cost'] = $this->cost;
         $cardInfo['image'] = $this->image;
+        $cardInfo['background'] = $this->background;
         return json_encode($cardInfo);
     }
 }
