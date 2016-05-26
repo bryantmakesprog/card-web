@@ -140,6 +140,7 @@ class Card extends \yii\db\ActiveRecord
         $cardInfo['rollMin'] = $this->triggeringRollMin;
         $cardInfo['rollMax'] = $this->triggeringRollMax;
         $cardInfo['cost'] = $this->cost;
+        $cardInfo['image'] = $this->image;
         return json_encode($cardInfo);
     }
 }
